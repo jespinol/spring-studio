@@ -30,7 +30,7 @@ public class SkillsController {
         String html =
                 "<html>" +
                     "<body>" +
-                        "<form method = 'POST' action = '/form'>" +
+                        "<form method = 'POST' action = '/completeform'>" +
                             "Name: <br/>" +
                             "<input type = 'text' name = 'name'/><br/>" +
                             "My favorite language: <br/>" +
@@ -58,16 +58,25 @@ public class SkillsController {
         return html;
     }
 
-    @PostMapping("/form")
+    @PostMapping("/completeform")
     @ResponseBody
     public String postFromPage(@RequestParam String name, @RequestParam String lang1, @RequestParam String lang2, @RequestParam String lang3){
         String html = "<html>" + "<body>" +
                 "<h1>" + name + "</h1>" +
-                "<ol>" +
-                "<li>" + lang1 + "</li>" +
-                "<li>" + lang2 + "</li>" +
-                "<li>" + lang3 + "</li>" +
-                "</ol>" +
+                "<table>" +
+                "<tr>" +
+                "<th> Favorite Language </th>" +
+                "<th>" + lang1 + "</th>" +
+                "</tr>" +
+                "<tr>" +
+                "<th> Second Favorite Language </th>" +
+                "<th>" + lang2 + "</th>" +
+                "</tr>" +
+                "<tr>" +
+                "<th> Third Favorite Language </th>" +
+                "<th>" + lang3 + "</th>" +
+                "</tr>" +
+                "</table>" +
                 "</body>" + "</html>";
         return html;
     }
